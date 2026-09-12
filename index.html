@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartFASTag – AI Barrier-Free Toll System</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon"><i class="fas fa-road"></i></span>
+      <span>Smart<b>FASTag</b></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="pages/dashboard.html">Dashboard</a></li>
+      <li><a href="pages/recharge.html">Recharge</a></li>
+      <li><a href="pages/history.html">History</a></li>
+      <li><a href="pages/admin.html">Admin</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="pages/login.html" class="btn btn-ghost">Login</a>
+      <a href="pages/register.html" class="btn btn-primary">Get Started</a>
+    </div>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="pages/dashboard.html">Dashboard</a>
+    <a href="pages/recharge.html">Recharge</a>
+    <a href="pages/history.html">History</a>
+    <a href="pages/admin.html">Admin</a>
+    <a href="pages/login.html">Login</a>
+    <a href="pages/register.html">Register</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="pulse-dot"></span> AI-Powered Toll System Live</div>
+    <h1 class="hero-title">
+      Barrier-Free<br/>
+      <span class="gradient-text">Intelligent</span><br/>
+      Toll Collection
+    </h1>
+    <p class="hero-sub">No stopping. No queues. No cash. AI reads your plate, deducts the toll, and sends a receipt — all in under 2 seconds.</p>
+    <div class="hero-cta">
+      <a href="pages/register.html" class="btn btn-primary btn-lg">
+        <i class="fas fa-tag"></i> Register FASTag
+      </a>
+      <a href="pages/dashboard.html" class="btn btn-outline btn-lg">
+        <i class="fas fa-chart-line"></i> View Dashboard
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="2400000">0</span><span class="stat-label">Daily Transactions</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="98">0</span><span class="stat-suffix">%</span><span class="stat-label">Accuracy Rate</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="1800">0</span><span class="stat-suffix">+</span><span class="stat-label">Toll Plazas</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="car-scene">
+      <div class="road">
+        <div class="lane-mark"></div><div class="lane-mark"></div><div class="lane-mark"></div>
+      </div>
+      <div class="car-wrap">
+        <div class="car">🚗</div>
+        <div class="scan-beam"></div>
+      </div>
+      <div class="toll-gate">
+        <div class="gate-post"></div>
+        <div class="gate-arm open"></div>
+        <div class="gate-light green"></div>
+      </div>
+      <div class="detection-badge"><i class="fas fa-check-circle"></i> TN38AB1234 — ₹45 deducted</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how-works">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Process</span>
+      <h2>How It Works</h2>
+      <p>Four steps. Under 2 seconds. Zero stopping.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-aos>
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="fas fa-camera"></i></div>
+        <h3>Camera Detects</h3>
+        <p>High-speed camera captures vehicle approaching toll at any speed.</p>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step" data-aos data-delay="100">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="fas fa-brain"></i></div>
+        <h3>AI Reads Plate</h3>
+        <p>EasyOCR + YOLO extracts number plate with 98% accuracy.</p>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step" data-aos data-delay="200">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="fas fa-wallet"></i></div>
+        <h3>Toll Deducted</h3>
+        <p>Wallet balance updated instantly. Borrow credit activates if balance is low.</p>
+      </div>
+      <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+      <div class="step" data-aos data-delay="300">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i class="fas fa-bell"></i></div>
+        <h3>Alert Sent</h3>
+        <p>SMS + push notification confirms deduction with receipt in under 2s.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Features</span>
+      <h2>Everything You Need</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card feature-large" data-aos>
+        <div class="feature-icon-wrap teal"><i class="fas fa-robot"></i></div>
+        <h3>AI Number Plate Recognition</h3>
+        <p>Python + OpenCV + EasyOCR reads plates at any angle or speed. Fraud detection flags cloned tags in real time.</p>
+        <div class="feature-tag">Python · OpenCV · EasyOCR</div>
+      </div>
+      <div class="feature-card" data-aos data-delay="100">
+        <div class="feature-icon-wrap blue"><i class="fas fa-bolt"></i></div>
+        <h3>Instant Deduction</h3>
+        <p>Sub-2-second toll processing with zero barriers or queues.</p>
+        <div class="feature-tag">Real-time</div>
+      </div>
+      <div class="feature-card" data-aos data-delay="150">
+        <div class="feature-icon-wrap purple"><i class="fas fa-credit-card"></i></div>
+        <h3>Multi-Channel Recharge</h3>
+        <p>UPI, card, netbanking, SMS command, voice IVR — any device.</p>
+        <div class="feature-tag">Razorpay · UPI · SMS</div>
+      </div>
+      <div class="feature-card" data-aos data-delay="200">
+        <div class="feature-icon-wrap amber"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3>Smart Borrow System</h3>
+        <p>Low balance? Pass now, repay on next recharge. Credit score gated.</p>
+        <div class="feature-tag">Credit Score AI</div>
+      </div>
+      <div class="feature-card" data-aos data-delay="250">
+        <div class="feature-icon-wrap green"><i class="fas fa-sync"></i></div>
+        <h3>Auto Recharge</h3>
+        <p>Cron job watches your balance and auto-debits UPI when it drops below ₹200.</p>
+        <div class="feature-tag">Node-cron · e-NACH</div>
+      </div>
+      <div class="feature-card feature-large" data-aos data-delay="300">
+        <div class="feature-icon-wrap coral"><i class="fas fa-chart-bar"></i></div>
+        <h3>Admin Analytics Dashboard</h3>
+        <p>Live revenue tracking, traffic heatmaps, fraud monitoring, and per-toll performance — all in one dashboard.</p>
+        <div class="feature-tag">Chart.js · Real-time</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section techstack">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Technology</span>
+      <h2>Built With Modern Stack</h2>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-pill"><i class="fab fa-react"></i> React / Next.js</div>
+      <div class="tech-pill"><i class="fab fa-node-js"></i> Node.js + Express</div>
+      <div class="tech-pill"><i class="fas fa-database"></i> PostgreSQL</div>
+      <div class="tech-pill"><i class="fab fa-python"></i> Python + OpenCV</div>
+      <div class="tech-pill"><i class="fas fa-rupee-sign"></i> Razorpay</div>
+      <div class="tech-pill"><i class="fas fa-sms"></i> Twilio SMS</div>
+      <div class="tech-pill"><i class="fab fa-aws"></i> AWS / Vercel</div>
+      <div class="tech-pill"><i class="fas fa-fire"></i> Firebase</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to go barrier-free?</h2>
+    <p>Register your vehicle and never stop at a toll again.</p>
+    <a href="pages/register.html" class="btn btn-white btn-lg">Register Now — Free</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-icon"><i class="fas fa-road"></i></span> Smart<b>FASTag</b></div>
+        <p>AI-powered barrier-free toll collection for modern highways.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <a href="pages/dashboard.html">Dashboard</a>
+        <a href="pages/recharge.html">Recharge</a>
+        <a href="pages/history.html">History</a>
+        <a href="pages/admin.html">Admin</a>
+      </div>
+      <div class="footer-links">
+        <h4>Account</h4>
+        <a href="pages/login.html">Login</a>
+        <a href="pages/register.html">Register</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 SmartFASTag. Built with ❤️ for India's highways.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

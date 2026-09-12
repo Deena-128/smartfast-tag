@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Login – SmartFASTag</title>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/animations.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .auth-page {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:100px 24px 60px; background:var(--navy);
+      position:relative; overflow:hidden;
+    }
+    .auth-glow {
+      position:fixed; border-radius:50%; filter:blur(120px); opacity:.18;
+      width:500px; height:500px;
+      background:radial-gradient(circle,var(--blue),transparent 70%);
+      top:-100px; left:-100px; animation:floatGlow 8s ease-in-out infinite;
+      z-index:0;
+    }
+    .auth-box {
+      background:var(--card-bg); border:1px solid var(--border); border-radius:24px;
+      padding:44px 40px; width:100%; max-width:440px; position:relative; z-index:1;
+    }
+    .auth-logo { text-align:center; margin-bottom:32px; }
+    .auth-logo .logo { justify-content:center; font-size:1.4rem; }
+    .auth-logo p { font-size:.85rem; color:#64748B; margin-top:8px; }
+    .auth-box h2 { text-align:center; margin-bottom:28px; font-size:1.6rem; }
+    .remember-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:24px; }
+    .remember-row label { display:flex; align-items:center; gap:8px; font-size:.85rem; color:#94A3B8; cursor:pointer; }
+    .remember-row a { font-size:.85rem; color:var(--blue2); }
+    .divider { display:flex; align-items:center; gap:12px; margin:20px 0; }
+    .divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--border); }
+    .divider span { font-size:.78rem; color:#475569; }
+    .social-btn {
+      width:100%; padding:11px; border-radius:10px; border:1px solid var(--border);
+      background:rgba(255,255,255,.04); color:#fff; font-family:var(--font-body);
+      font-size:.88rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
+      transition:all .2s; margin-bottom:10px;
+    }
+    .social-btn:hover { border-color:var(--blue2); background:rgba(26,107,240,.08); }
+    .auth-footer { text-align:center; margin-top:24px; font-size:.85rem; color:#64748B; }
+    .auth-footer a { color:var(--blue2); }
+    .form-err { font-size:.78rem; min-height:16px; display:block; margin-top:4px; }
+    @media(max-width:480px){ .auth-box{padding:32px 24px} }
+  </style>
+</head>
+<body>
+<div class="auth-glow"></div>
+<div class="auth-page">
+  <div class="auth-box">
+    <div class="auth-logo">
+      <div class="logo"><span class="logo-icon"><i class="fas fa-road"></i></span> Smart<b>FASTag</b></div>
+      <p>AI-Powered Barrier-Free Toll System</p>
+    </div>
+    <h2>Welcome back 👋</h2>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label>Email / Mobile</label>
+        <input class="form-control" name="email" type="text" placeholder="you@email.com or 9876543210" required/>
+        <span class="form-err" data-err="email"></span>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <div style="position:relative">
+          <input class="form-control" name="password" id="pwdField" type="password" placeholder="Enter password" required style="padding-right:44px"/>
+          <button type="button" onclick="togglePwd()" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748B;cursor:pointer;font-size:1rem">
+            <i class="fas fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+        <span class="form-err" data-err="password"></span>
+      </div>
+      <div class="remember-row">
+        <label><input type="checkbox"/> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;font-size:1rem" id="loginBtn" data-label="Login">
+        <i class="fas fa-sign-in-alt"></i> Login
+      </button>
+    </form>
+
+    <div class="divider"><span>or continue with</span></div>
+    <button class="social-btn" onclick="showToast('Google login coming soon!')"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="G"/> Continue with Google</button>
+    <button class="social-btn" onclick="showToast('Mobile OTP coming soon!')"><i class="fas fa-mobile-alt" style="color:var(--teal)"></i> Login with OTP</button>
+
+    <div class="auth-footer">Don't have an account? <a href="register.html">Register Free</a></div>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+<script>
+function togglePwd() {
+  const f = document.getElementById('pwdField');
+  const e = document.getElementById('eyeIcon');
+  if (f.type === 'password') { f.type='text'; e.className='fas fa-eye-slash'; }
+  else { f.type='password'; e.className='fas fa-eye'; }
+}
+function handleLogin(e) {
+  e.preventDefault();
+  const email = e.target.email.value.trim();
+  const pwd   = e.target.password.value;
+  if (!email) return;
+  if (!pwd || pwd.length < 4) { document.querySelector('[data-err="password"]').textContent='Password too short'; return; }
+  const btn = document.getElementById('loginBtn');
+  btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Logging in…';
+  setTimeout(()=>{
+    window.location.href = 'dashboard.html';
+  }, 1500);
+}
+</script>
+</body>
+</html>
